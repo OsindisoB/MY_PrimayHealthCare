@@ -1,0 +1,46 @@
+﻿/* Style for the navbar */
+.navbar {
+    background-color: blue;
+    width: 100%; /* Make the navbar span the entire width of the page */
+    display: flex;
+    align-items: center;
+    height: 60px; /* Set the desired height */
+}
+
+    /* Style for navbar links */
+    .navbar ul {
+        list-style-type: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+        width: 100%; /* Make the ul element span the entire width of the navbar */
+        justify-content: space-around; /* Spread the items evenly across the width */
+    }
+
+    .navbar li {
+        margin: 0;
+    }
+
+    .navbar a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+        .navbar a:hover {
+            color: lightblue;
+        }
+/* Example styling for sections */
+section {
+    padding: 50px;
+    background-color: white;
+    color: blue;
+}
+
+/* Example hover effect for navbar links */
+.navbar a:hover {
+    color: white;
+    background-color: blue;
+}
+
+/* Add more styling as needed */

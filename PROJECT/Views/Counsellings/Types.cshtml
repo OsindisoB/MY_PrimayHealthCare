@@ -1,0 +1,173 @@
+﻿@model PROJECT.Models.Counselling
+
+<div class="container">
+    <a asp-controller="Home" asp-action="Index" class="btn btn-primary" &larr;> &larr;</a>
+</div>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewData["Title"] = "Counselling";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>eNompilo - HealthCare</title>
+    <link rel="stylesheet" href="~/css/landing.css" asp-append-version="true" />
+    <link href="~/css/style.css" rel="stylesheet" />
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+    <script src="~/js/main.js"></script>
+    <script src="~/lib/easing/easing.min.js"></script>
+    <script src="~/lib/owlcarousel/owl.carousel.min.js"></script>
+    <link href="~/lib/tempusdominus/css/tempusdominus-bootstrap-4.css" rel="stylesheet" />
+    <script src="~/lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="~/lib/tempusdominus/js/moment.min.js"></script>
+    <script src="~/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="~/lib/waypoints/waypoints.min.js"></script>
+
+</head>
+
+<body>
+
+    <!-- Services Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5" style="max-width: 500px;">
+                <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Our Comprehensive Counselling Services</h5>
+            </div>
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                        <div class="@*service-icon mb-4*@">
+                            @* <i class="fa fa-2x fa-user-md text-white"></i>*@
+                        </div>
+                        <h4 class="mb-3">Individual Counselling</h4>
+                        <p class="m-0">Individual counselling provides a safe and confidential space for self-exploration, allowing individuals to address their concerns, develop coping strategies, and work towards positive personal transformation</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                        <div class="@*service-icon mb-4*@">
+                            @*<i class="fa fa-2x fa-procedures text-white"></i>*@
+                        </div>
+                        <h4 class="mb-3">Family/Group Counselling</h4>
+                        <p class="m-0">Family/group counselling fosters open communication and understanding among members, promoting a harmonious and connected dynamic.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                        <div class="@*service-icon mb-4*@">
+                            @* <i class="fa fa-2x fa-stethoscope text-white"></i>*@
+                        </div>
+                        <h4 class="mb-3">Couples Counselling</h4>
+                        <p class="m-0">Couples counselling helps partners navigate challenges and strengthen their relationship, while individual counselling supports personal growth and emotional well-being. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Services End -->
+    <!-- Appointment Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="row gx-5">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="mb-4">
+                        <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Appointment</h5>
+                        <h1 class="display-4">Counselling</h1>
+                    </div>
+                    <p class="mb-5">When booking a counseling appointment at eNompilo, patients can expect a supportive and confidential environment to address their emotional well-being. Our dedicated team of experienced counselors is here to guide and assist you through your challenges. Whether you choose to book over the phone, through our website, or in person, our goal is to provide you with a safe space to openly discuss your concerns and work together towards positive change. Your preferences and needs will be respected throughout the process, ensuring a personalized and effective counseling experience. We look forward to being a part of your journey towards improved mental health.</p>
+                    <a class="btn btn-primary rounded-pill py-3 px-5 me-3" href="https://localhost:7248/Counselling/FindDoctors">Find Doctor</a>
+                </div>
+                <div class="col-lg-6">
+                    <div class="bg-light text-center rounded p-5">
+                        <h1 class="mb-4">Book a Counselling Appointment</h1>
+
+                        <form method="post" asp-action="Create">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <select class="form-select bg-white border-0" style="height: 55px;" asp-for="CounsellingType">
+                                        <option value="">Select Counselling Type</option>
+                                        <option value="Family/Group Counselling">Family/Group Counselling</option>
+                                        <option value="Couple Counselling">Couple Counselling</option>
+                                        <option value="Individual Counselling">Individual Counselling</option>
+                                    </select>
+                                    <span asp-validation-for="CounsellingType" class="text-danger"></span>
+                                </div>
+
+                                <div class="col-12 col-sm-6">
+                                    <select class="form-select bg-white border-0" style="height: 55px;" asp-for="CounsellorName">
+                                        <option selected>Select Doctor</option>
+                                        <option value="1">Dr Pillay(Mr)</option>
+                                        <option value="2">Dr Ngoqo(Mrs)</option>
+                                        <option value="3">Dr Bunyula(Ms)</option>
+                                    </select>
+                                    <span asp-validation-for="CounsellorName" class="text-danger"></span>
+                                </div>
+
+                                <div class="col-12">
+                                    <input type="text" class="form-control bg-white border-0" placeholder="Your Name" style="height: 55px;" asp-for="Name">
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                </div>
+
+                                <div class="col-12">
+                                    <input type="text" class="form-control bg-white border-0" placeholder="Your Email" style="height: 55px;" asp-for="Email">
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label asp-for="AppointmentDate" class="control-label"></label>
+                                        <input asp-for="AppointmentDate" class="form-control" />
+                                        <span asp-validation-for="AppointmentDate" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label asp-for="AppointmentTime" class="control-label"></label>
+                                        <input asp-for="AppointmentTime" class="form-control" />
+                                        <span asp-validation-for="AppointmentTime" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="button" class="btn btn-primary w-100 py-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        Book Appointment
+                                    </button>
+                                    @* <a asp-controller="Home" asp-action="Index" class="btn btn-primary" > Book Appointment</a>*@
+                                </div>
+                                @*@* <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">Make An Appointment</button>
+                                </div>*@*
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Button trigger modal -->
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Please Login</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

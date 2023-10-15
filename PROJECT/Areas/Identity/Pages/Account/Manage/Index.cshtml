@@ -1,0 +1,185 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Profile";
+    ViewData["ActivePage"] = ManageNavPages.Index;
+}
+
+<head>
+    <title>eNompilo - HealthCare</title>
+    <link rel="stylesheet" href="~/css/landing.css" asp-append-version="true" />
+    <link href="~/css/style.css" rel="stylesheet" />
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+    <script src="~/js/main.js"></script>
+    <script src="~/lib/easing/easing.min.js"></script>
+    <script src="~/lib/owlcarousel/owl.carousel.min.js"></script>
+    <link href="~/lib/tempusdominus/css/tempusdominus-bootstrap-4.css" rel="stylesheet" />
+    <script src="~/lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="~/lib/tempusdominus/js/moment.min.js"></script>
+    <script src="~/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="~/lib/waypoints/waypoints.min.js"></script>
+
+</head>
+
+<h3>@ViewData["Title"]</h3>
+<partial name="_StatusMessage" for="StatusMessage" />
+<div class="row">
+    <div class="col-md-6">
+        <form id="profile-form" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-floating">
+                <input asp-for="Username" class="form-control" disabled />
+                <label asp-for="Username" class="form-label"></label>
+            </div>
+          @*  <div class="form-floating">
+                <input asp-for="Input.PhoneNumber" class="form-control" />
+                <label asp-for="Input.PhoneNumber" class="form-label"></label>
+                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+            </div>*@
+            <div class="form-floating">
+                <input asp-for="Input.PatientName" class="form-control" />
+                <label asp-for="Input.PatientName">Name</label>
+                <span asp-validation-for="Input.PatientName" class="text-danger"></span>
+            </div>
+            <div class="form-floating">
+                <input asp-for="Input.PatientSurrname" class="form-control" />
+                <label asp-for="Input.PatientSurrname">Surname</label>
+                <span asp-validation-for="Input.PatientSurrname" class="text-danger"></span>
+            </div>
+            <div class="form-floating">
+                <input asp-for="Input.PhoneNumber" class="form-control" />
+                <label asp-for="Input.PhoneNumber">Cellphone Number</label>
+                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.DateOfBirth" class="form-control" type="date" />
+                <label asp-for="Input.DateOfBirth" class="form-label">Date of Birth</label>
+                <span asp-validation-for="Input.DateOfBirth" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <select asp-for="Input.Gender" class="form-control">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+                <label asp-for="Input.Gender">Gender</label>
+                <span asp-validation-for="Input.Gender" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-floating">
+                <input asp-for="Input.PhoneNumber" class="form-control" />
+                <label asp-for="Input.PhoneNumber" class="form-label"></label>
+                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+            </div>
+
+            <!-- Address -->
+            <h6 class="mt-3 mb-2 text-primary">Address</h6>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Street" class="form-control" />
+                <label asp-for="Input.Street">Street</label>
+                <span asp-validation-for="Input.Street" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="Input.City" class="form-control" />
+                <label asp-for="Input.City">City</label>
+                <span asp-validation-for="Input.City" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <select asp-for="Input.Province" class="form-control">
+                    <option value="Eastern Cape">Eastern Cape</option>
+                    <option value="Free State">Free State</option>
+                    <option value="Gauteng">Gauteng</option>
+                    <option value="KwaZulu-Natal">KwaZulu-Natal</option>
+                    <option value="Limpopo">Limpopo</option>
+                    <option value="Mpumalanga">Mpumalanga</option>
+                    <option value="North West">North West</option>
+                    <option value="Northern Cape">Northern Cape</option>
+                    <option value="Western Cape">Western Cape</option>
+                </select>
+                <label asp-for="Input.Province">Province</label>
+                <span asp-validation-for="Input.Province" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="Input.ZipCode" class="form-control" />
+                <label asp-for="Input.ZipCode">Zip Code</label>
+                <span asp-validation-for="Input.ZipCode" class="text-danger"></span>
+            </div>
+
+            <!-- Medical Information -->
+            <h6 class="mt-3 mb-2 text-primary">Medical Information</h6>
+            <div class="form-floating mb-3">
+                <textarea asp-for="Input.MedicalHistory" class="form-control" rows="4"></textarea>
+                <label asp-for="Input.MedicalHistory">Tell us about your medical history</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Allergies" class="form-control" />
+                <label asp-for="Input.Allergies">Do you have any allergies?</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="Input.CurrentMedications" class="form-control" />
+                <label asp-for="Input.CurrentMedications">Are you on any medications?</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Weight" class="form-control" />
+                <label asp-for="Input.Weight">Weight</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Height" class="form-control" />
+                <label asp-for="Input.Height">Height</label>
+            </div>
+
+            <!-- Additional Information -->
+            <h6 class="mt-3 mb-2 text-primary">Additional Information</h6>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Occupation" class="form-control" />
+                <label asp-for="Input.Occupation">Occupation</label>
+                <span asp-validation-for="Input.Occupation" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <select asp-for="Input.MaritalStatus" class="form-control">
+                    <option value="Single">Single</option>
+                    <option value="Married">Married</option>
+                    <option value="Divorced">Divorced</option>
+                    <option value="Widowed">Widowed</option>
+                    <option value="Separated">Separated</option>
+                    <option value="In a Relationship">In a Relationship</option>
+                    <option value="Other">Other</option>
+                </select>
+                <label asp-for="Input.MaritalStatus">Marital Status</label>
+                <span asp-validation-for="Input.MaritalStatus" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-floating mb-3">
+                <input asp-for="Input.EmergencyContact" class="form-control" />
+                <label asp-for="Input.EmergencyContact">Medical Consent: Please answer with 'Yes' to consent or 'No' to decline emergency medical procedures when necessary.</label>
+                <span asp-validation-for="Input.EmergencyContact" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="Input.BloodType" class="form-control" />
+                <label asp-for="Input.BloodType">Blood Type</label>
+            </div>
+
+            <button id="update-profile-button" type="submit" class="w-100 btn btn-lg btn-primary">Save</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
